@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect, withRouter } from "react-router-dom";
+import { Redirect, Switch, withRouter } from "react-router-dom";
 import { Link, Route } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import "./App.css";
@@ -31,37 +31,43 @@ class App extends Component {
         <h1>
           <Link to="/">PhotoWall</Link>
         </h1>
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <div>
-              <PhotoWall {...this.props} />
-            </div>
-          )}
-        />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <div>
+                <PhotoWall {...this.props} />
+              </div>
+            )}
+          />
 
-        <Route
-          path="/addPhoto"
-          render={({ history }) => (
-            <AddPhoto {...this.props} onHistory={history} />
-          )}
-        />
-        <Route
-          path="/single/:id"
-          render={(params) => (
-            <Single loading={this.state.loading} {...this.props} {...params} />
-          )}
-        />
-        <Route
-          path="/404"
-          render={() => (
-            <div>
-              <PageNotFound />
-            </div>
-          )}
-        />
-        <Redirect to="/404" />
+          <Route
+            path="/addPhoto"
+            render={({ history }) => (
+              <AddPhoto {...this.props} onHistory={history} />
+            )}
+          />
+          <Route
+            path="/single/:id"
+            render={(params) => (
+              <Single
+                loading={this.state.loading}
+                {...this.props}
+                {...params}
+              />
+            )}
+          />
+          <Route
+            path="/404"
+            render={() => (
+              <div>
+                <PageNotFound />
+              </div>
+            )}
+          />
+          <Redirect to="/404" />
+        </Switch>
       </div>
     );
   }
