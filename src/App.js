@@ -7,6 +7,7 @@ import "./App.css";
 import AddPhoto from "./components/AddPhoto";
 import PhotoWall from "./components/PhotoWall";
 import Single from "./components/Single";
+import PageNotFound from "./components/PageNotFound";
 import * as actions from "./store/actions";
 
 class App extends Component {
@@ -52,6 +53,7 @@ class App extends Component {
             <Single loading={this.state.loading} {...this.props} {...params} />
           )}
         />
+        <Route path="*" component={PageNotFound} />
       </div>
     );
   }
