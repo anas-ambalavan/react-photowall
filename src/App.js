@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import { Link, Route } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import "./App.css";
@@ -53,7 +53,15 @@ class App extends Component {
             <Single loading={this.state.loading} {...this.props} {...params} />
           )}
         />
-        <Route path="*" component={PageNotFound} />
+        <Route
+          path="/404"
+          render={() => (
+            <div>
+              <PageNotFound />
+            </div>
+          )}
+        />
+        <Redirect to="/404" />
       </div>
     );
   }
