@@ -20,7 +20,6 @@ function comments(state = {}, action) {
     default:
       return state;
   }
-  return state;
 }
 
 function posts(state = _posts, action) {

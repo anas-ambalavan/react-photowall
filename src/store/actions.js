@@ -6,8 +6,8 @@ import {
   REMOVE_POST,
 } from "./types";
 import { database } from "../config";
-import { child, get, ref, remove, set, update, push } from "firebase/database";
-import Comments from "../components/Comments";
+import { child, get, ref, remove, update, push } from "firebase/database";
+// import Comments from "../components/Comments";
 
 export function startAddingPost(post) {
   return (dispatch) => {
