@@ -4,7 +4,7 @@
 
 - Create Firebase account and configure Realtime database
   https://firebase.google.com/docs/database/rest/start
-- modify firebase config file `src/config.js`
+- Create .env file in root dir and add variables according to the config file `src/config.js`
 
 #### Step 2:
 
